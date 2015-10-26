@@ -16,8 +16,8 @@ block content
         input(type="submit" value="Submit")
 
     h1 All uploads are here:
-        each val in uploads
-            div
-                p= val.name
-                p= val.description
-                img(src=val.file.path + "/" + val.file.originalname alt=val.file.originalname)
+    each val in uploads
+        .box
+            p= val.name
+            p= val.description
+            img.thumbnail(src=val.file.path + "/" + val.file.originalname alt=val.file.originalname)

@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+.box{
+    border: 1px solid #ededed;
+    border-bottom: 0.5px solid #777e7e;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.thumbnail{
+    object-fit: cover;
+    object-position: center;
+    height: 100px;
+    width: 100px;
+}
