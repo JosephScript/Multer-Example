@@ -20,4 +20,4 @@ block content
             div
                 p= val.name
                 p= val.description
-                img(src=val.file.path alt=val.file.originalname)
+                img(src=val.file.path + "/" + val.file.originalname alt=val.file.originalname)

@@ -5,16 +5,17 @@ var Upload = require('../models/upload');
 var multer = require('multer');
 var upload = multer({dest: 'uploads/'});
 
-router.get('/:filename', function (req, res, next) {
+router.get('/:uuid/:filename', function (req, res, next) {
     console.log(req.params.filename);
     Upload.findOne({
-        'file.filename': req.params.filename
+        'file.filename': req.params.uuid,
+        'file.originalname': req.params.filename
     }, function (err, upload) {
 
         if (err) next(err);
         else {
             res.set({
-                "Content-Disposition": 'attachment; filename="' + upload.file.name + '"',
+                "Content-Disposition": 'attachment; filename="' + upload.file.originalname + '"',
                 "Content-Type": upload.file.mimetype
             });
             fs.createReadStream(upload.file.path).pipe(res);
